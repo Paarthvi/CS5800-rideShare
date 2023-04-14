@@ -2,10 +2,13 @@ from datetime import datetime
 
 class Position(object):
 
-    def __init__(self, latitude: float, longitude: float, time: datetime) -> None:
+    def __init__(self, latitude: float, longitude: float, time: datetime = None) -> None:
         self.latitude = latitude
         self.longitude = longitude
-        self.time = time
+        if not time:
+            self.time = datetime.now()
+        else:
+            self.time = time
 
 
     def euclid(self, position: '__class__') -> float:
