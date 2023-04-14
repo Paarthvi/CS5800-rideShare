@@ -2,9 +2,10 @@ from datetime import datetime
 
 class Position(object):
 
-    def __init__(self, latitude: float, longitude: float, time: datetime = None) -> None:
+    def __init__(self, latitude: float, longitude: float, time: datetime = None, name = "") -> None:
         self.latitude = latitude
         self.longitude = longitude
+        self.name = name
         if not time:
             self.time = datetime.now()
         else:
@@ -16,4 +17,4 @@ class Position(object):
 
     def __str__(self):
         return f"Position is {self.latitude} latitude and {self.longitude} longitude." + \
-               f"\nCreated at {self.time}" 
+               f" Created at {self.time}, name of the point is {self.name}" 
