@@ -92,13 +92,17 @@ class Navigator(object):
         points = list(range(1, len(locations) + 1))
         all_paths = permutations(points)
         for path in all_paths:
+            broken = False
             current_cost = 0
             cur = 0
             for i in path:
                 current_cost += adjacency[cur][i]
-                # if min_cost < current_cost:
-                #     break
+                if min_cost < current_cost:
+                    broken = True
+                    break
                 cur = i
+            if broken:
+                continue
             current_cost += adjacency[cur][0]
             if min_cost > current_cost:
                 min_cost = current_cost
