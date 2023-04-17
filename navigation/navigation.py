@@ -88,7 +88,6 @@ class Navigator(object):
                 distance = locations[i].euclid(locations[j])
                 adjacency[j + 1][i + 1] = distance
                 adjacency[i + 1][j + 1] = distance
-        # pprint(adjacency)
         points = list(range(1, len(locations) + 1))
         all_paths = permutations(points)
         for path in all_paths:
@@ -151,5 +150,3 @@ class Navigator(object):
                     if neighbor not in open_set:
                         open_set.add(neighbor)
         return []
-
-
